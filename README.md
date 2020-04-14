@@ -1,5 +1,5 @@
 # AthPPA
-A Python tool for identifying political popularity through Twitter
+A Python data visualization tool for identifying political popularity through Twitter
 
 Description:
 
@@ -8,6 +8,7 @@ AthPPA (which stands for Athena political popularity analysis tool) is a web app
 Prerequisites:
 1. Python (3.8 version)
 2. tweepy (pip install tweepy)
+3. Dash framework, for visualizing data (pip install dash)
 3. spacy-nightly (pip install spacy-nightly)
 4. Download Spacy Greek libraries (spacy download el_core_news_md)
 
