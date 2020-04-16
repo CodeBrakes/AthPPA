@@ -677,7 +677,7 @@ index = html.Div([
                       }
                   ],
                   'layout': {
-                      'title': 'Number of likes per tweet for top three Greek political leaders (200 tweets sample)',
+                      'title': 'Number of likes per tweet for top three Greek political leaders (600 tweets sample)',
                       'xaxis': dict(
                           title='Number of tweet samples',
                           titlefont=dict(
@@ -710,7 +710,7 @@ index = html.Div([
                       }
                   ],
                   'layout': {
-                      'title': 'Number of re-tweets per tweet for top three Greek political leaders (200 tweets sample)',
+                      'title': 'Number of re-tweets per tweet for top three Greek political leaders (600 tweets sample)',
                       'xaxis': dict(
                           title='Number of tweet samples',
                           titlefont=dict(
@@ -800,15 +800,15 @@ index = html.Div([
                       }
                   ],
                   'layout': {
-                      'title': 'Total comparison of sentiment analysis for the top three Greek political leaders (200 tweets sample)',
+                      'title': 'Total comparison of sentiment analysis for the top three Greek political leaders (600 tweets sample)',
                       'xaxis': dict(
-                          title='Number of tweet samples',
+                          title='Numbers of a single tweet sample',
                           titlefont=dict(
                               family='Courier New, monospace',
                               size=14,
                               color='#7f7f7f')),
                       'yaxis': dict(
-                          title='Number of retweets',
+                          title='Sentiment value indicator',
                           titlefont=dict(
                               family='Courier New, monospace',
                               size=14,
@@ -821,22 +821,22 @@ index = html.Div([
                   'data': [
                       {
                           'x': [1], 'y': [inputStream.pos_count_leader1], 'type': 'bar',
-                          'name': 'Kyriakos Mitsotakis - New Democracy',
+                          'name': 'Kyriakos Mitsotakis - New Democracy (200 tweet sample)',
                           'marker': {'color': 'rgb(45, 86, 133)'}
                       },
                       {
                           'x': [2], 'y': [inputStream.pos_count_leader2], 'type': 'bar',
-                          'name': 'Alexis Tsipras - SYRIZA',
+                          'name': 'Alexis Tsipras - SYRIZA (200 tweet sample)',
                           'marker': {'color': 'rgb(179, 50, 80)'}
                       },
                       {
                           'x': [3], 'y': [inputStream.pos_count_leader3], 'type': 'bar',
-                          'name': 'Fofi Grennimata - KINAL',
+                          'name': 'Fofi Grennimata - KINAL (200 tweet sample)',
                           'marker': {'color': 'rgb(47, 143, 100)'}
                       }
                   ],
                   'layout': {
-                      'title': 'Positive identified tweets for the top three political leaders (200 tweets sample)',
+                      'title': 'Positive identified tweets for the top three political leaders (600 tweets sample)',
                       'xaxis': dict(
                           title='Number of political leaders',
                           titlefont=dict(
@@ -858,13 +858,13 @@ index = html.Div([
             'data': [
                 {'values': [inputStream.percentage_pos_ld1, inputStream.percentage_pos_ld2,
                             inputStream.percentage_pos_ld3], 'type': 'pie',
-                 'labels': ["Kyriakos Mitsotakis - New Democracy", "Alexis Tsipras - SYRIZA",
-                            "Fofi Gennimata - KINAL"],
+                 'labels': ["Kyriakos Mitsotakis - New Democracy (200 tweet sample)", "Alexis Tsipras - SYRIZA (200 tweet sample)",
+                            "Fofi Gennimata - KINAL (200 tweet sample)"],
                  'marker': {'colors': ['rgb(45, 86, 133)', 'rgb(179, 50, 80)', 'rgb(47, 143, 100)']}
                  }
             ],
             'layout': dict(
-                title='Positive identified tweets for the top three political leaders (200 tweets sample) as percentage',
+                title='Positive identified tweets for the top three political leaders (600 tweets sample) as percentage',
                 titlefont=dict(
                     family='Courier New, monospace',
                     size=14,
@@ -877,22 +877,22 @@ index = html.Div([
                   'data': [
                       {
                           'x': [1], 'y': [inputStream.neu_count_leader1], 'type': 'bar',
-                          'name': 'Kyriakos Mitsotakis - New Democracy',
+                          'name': 'Kyriakos Mitsotakis - New Democracy (200 tweet sample)',
                           'marker': {'color': 'rgb(45, 86, 133)'}
                       },
                       {
                           'x': [2], 'y': [inputStream.neu_count_leader2], 'type': 'bar',
-                          'name': 'Alexis Tsipras - SYRIZA',
-                          'marker': {'color': 'rgb(179, 50, 80)'}
+                          'name': 'Alexis Tsipras - SYRIZA (200 tweet sample)',
+                          'marker': {'color': 'rgb(179, 50, 80) (200 tweet sample)'}
                       },
                       {
                           'x': [3], 'y': [inputStream.neu_count_leader3], 'type': 'bar',
-                          'name': 'Fofi Grennimata - KINAL',
-                          'marker': {'color': 'rgb(47, 143, 100)'}
+                          'name': 'Fofi Grennimata - KINAL (200 tweet sample)',
+                          'marker': {'color': 'rgb(47, 143, 100) (200 tweet sample)'}
                       }
                   ],
                   'layout': {
-                      'title': 'Neutral identified tweets for the top three political leaders (200 tweets sample)',
+                      'title': 'Neutral identified tweets for the top three political leaders (600 tweets sample)',
                       'xaxis': dict(
                           title='Number of political leaders',
                           titlefont=dict(
@@ -914,13 +914,13 @@ index = html.Div([
             'data': [
                 {'values': [inputStream.percentage_neu_ld1, inputStream.percentage_neu_ld2,
                             inputStream.percentage_neu_ld3], 'type': 'pie',
-                 'labels': ["Kyriakos Mitsotakis - New Democracy", "Alexis Tsipras - SYRIZA",
-                            "Fofi Gennimata - KINAL"],
+                 'labels': ["Kyriakos Mitsotakis - New Democracy (200 tweet sample)", "Alexis Tsipras - SYRIZA (200 tweet sample)",
+                            "Fofi Gennimata - KINAL (200 tweet sample)"],
                  'marker': {'colors': ['rgb(45, 86, 133)', 'rgb(179, 50, 80)', 'rgb(47, 143, 100)']}
                  }
             ],
             'layout': dict(
-                title='Neutral identified tweets for the top three political leaders (200 tweets sample) as percentage',
+                title='Neutral identified tweets for the top three political leaders (600 tweets sample) as percentage',
                 titlefont=dict(
                     family='Courier New, monospace',
                     size=14,
@@ -933,22 +933,22 @@ index = html.Div([
                   'data': [
                       {
                           'x': [1], 'y': [inputStream.neg_count_leader1], 'type': 'bar',
-                          'name': 'Kyriakos Mitsotakis - New Democracy',
+                          'name': 'Kyriakos Mitsotakis - New Democracy (200 tweet sample)',
                           'marker': {'color': 'rgb(45, 86, 133)'}
                       },
                       {
                           'x': [2], 'y': [inputStream.neg_count_leader2], 'type': 'bar',
-                          'name': 'Alexis Tsipras - SYRIZA',
+                          'name': 'Alexis Tsipras - SYRIZA (200 tweet sample)',
                           'marker': {'color': 'rgb(179, 50, 80)'}
                       },
                       {
                           'x': [3], 'y': [inputStream.neg_count_leader3], 'type': 'bar',
-                          'name': 'Fofi Grennimata - KINAL',
+                          'name': 'Fofi Grennimata - KINAL (200 tweet sample)',
                           'marker': {'color': 'rgb(47, 143, 100)'}
                       }
                   ],
                   'layout': {
-                      'title': 'Negative identified tweets for the top three political leaders (200 tweets sample)',
+                      'title': 'Negative identified tweets for the top three political leaders (600 tweets sample)',
                       'xaxis': dict(
                           title='Number of political leaders',
                           titlefont=dict(
@@ -969,13 +969,13 @@ index = html.Div([
             'data': [
                 {'values': [inputStream.percentage_neg_ld1, inputStream.percentage_neg_ld2,
                             inputStream.percentage_neg_ld3], 'type': 'pie',
-                 'labels': ["Kyriakos Mitsotakis - New Democracy", "Alexis Tsipras - SYRIZA",
-                            "Fofi Gennimata - KINAL"],
+                 'labels': ["Kyriakos Mitsotakis - New Democracy (200 tweet sample)", "Alexis Tsipras - SYRIZA (200 tweet sample)",
+                            "Fofi Gennimata - KINAL (200 tweet sample)"],
                  'marker': {'colors': ['rgb(45, 86, 133)', 'rgb(179, 50, 80)', 'rgb(47, 143, 100)']}
                  }
             ],
             'layout': dict(
-                title='Negative identified tweets for the top three political leaders (200 tweets sample) as percentage',
+                title='Negative identified tweets for the top three political leaders (600 tweets sample) as percentage',
                 titlefont=dict(
                     family='Courier New, monospace',
                     size=14,
@@ -1066,7 +1066,8 @@ about_us = html.Div([
     html.Table([
         html.Tr([
             html.Th([
-                html.P("Alexandros Britzolakis MSc in Network Engineering and Multimedia, H.M.U", className="header-about")
+                html.P("Alexandros Britzolakis MSc in Informatics Engineering, H.M.U", className="header-about"),
+                html.P("Former graduate assistant researcher, CBML-FORTH-ICS and at AISE-H.M.U.", className="header-about")
             ], className="row-about"),
 
             html.Th([
@@ -1086,13 +1087,13 @@ about_us = html.Div([
             ], className="row-about"),
 
             html.Th([
-                #html.P("Stelios Sfakianakis, PhD in Biotechnology, TUC", className="header-about"),
-                #html.P("Adjunct lecturer at E.C.E. department, H.M.U.", className="header-about")
+                html.P("Stelios Sfakianakis, PhD in Biotechnology, TUC", className="header-about"),
+                html.P("Adjunct lecturer at E.C.E. department, H.M.U.", className="header-about")
             ], className="row-about")
         ]),
         html.Tr([
             html.Td([html.P(inputStream.about_text_3, className="paragraph")]),
-            #html.Td([html.P(inputStream.about_text_4, className="paragraph")])
+            html.Td([html.P(inputStream.about_text_4, className="paragraph")])
         ]),
 
     ], className="table-about")
