@@ -4,6 +4,10 @@ from modules.TwitterClient import TwitterClient
 
 twitter_client = TwitterClient()
 tweet_analyzer = TweetAnalyzer()
+from modules.sentiment import kmitsotakis as leader1_sentiment
+from modules.sentiment import atsipras as leader2_sentiment
+from modules.sentiment import gennimata as leader3_sentiment
+from modules.sentiment import presidential as presidential_sentiment
 
 api = twitter_client.get_twitter_client_api()
 
@@ -153,8 +157,8 @@ about_text_4 = "Dr. Stelios Sfakianakis received his B.Sc. and MSc diplomas from
 
 
 #Add the values taken from spacy script for kmitsotakis account
-sentiment_leader_1=[0,3,3,0,0,0,0,0,3,3,0,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,3,0,1,0,0,0,0,3,0,0,0,0,0,3,0,3,-3,2,0,-3,0,0,2,0,3,-3,3,0,0,0,2,0,3,0,-3,0,0,-2,0,2,0,-3,0,0,0,3,0,0,0,0,0,0,3,0,0,3,0,-3,-2,3,0,0,0,0,0,-3,0,0,0,0,1,0,0,0,0,3,0,0,3,0,0,0,3,0,2,3,0,0,3,0,0,0,0,3,0,-3,0,0,3,0,0,0,0,3,1,3,-2,0,0,0,3,3,3,3,-3,3,3,-3,0,3,0,3,-1,0,0,2,3,0,0,3,0,3,3,3,0,0,0,3,0,0,0,0,3,0,0,0,0,3,0,2,0,3,3,0,0,0,3,0,3,3,0,0,0,3,0,3,0,0,-3,0,0,3,-2]
-sent_leader_1_score=[0,60,25,0,0,0,0,0,80,50,0,0,0,0,0,0,27,0,0,0,0,0,0,0,0,0,0,28,0,100,0,0,0,0,32,0,0,0,0,0,35,0,80,10,70,0,40,0,0,20,0,60,40,20,0,0,0,60,0,80,0,27,0,0,33,0,30,0,40,0,0,0,40,0,0,0,0,0,0,100,0,0,20,0,16,13,11,0,0,0,0,0,40,0,0,0,0,80,0,0,0,0,40,0,0,27,0,0,0,30,0,52,40,0,0,47,0,0,0,0,80,0,80,0,0,20,0,0,0,0,80,80,50,60,0,0,0,70,20,80,40,16,27,67,27,0,40,0,50,80,0,0,53,60,0,0,53,0,30,40,40,0,0,0,50,0,0,0,0,20,0,0,0,0,20,0,60,0,40,40,0,0,0,50,0,40,20,0,0,0,90,0,100,0,0,25,0,0,100,80]
+sentiment_leader_1 = leader1_sentiment.list
+
 #Initiate the lists that potitive, negative and neutral numbers will be stored
 pos_count_leader1, neg_count_leader1, neu_count_leader1 = 0, 0, 0
 
@@ -179,7 +183,7 @@ percentage_neg_ld1 = int((neg_count_leader1 * 100) / total_tweets_leader1)
 
 
 #Add the values taken from spacy script for kmitsotakis account
-sentiment_PrAcc=[3,3,3,3,0,0,0,3,2,2,-3,3,3,0,0,0,2,3,0,0,3,0,3,3,0,-3,0,3,3,2,3,0,0,3,0,3,0,-1,-3,0,0,0,3,3,0,3,0,0,3,3,3,3,0,3,2,3,-3,3,0,0,0,3,3,0,0,0,-3,0,-3,3,-3,0,3,0,-3,-3,3,0,-3,0,-3,2,0,3,2,3,0,3,-2,3,3,3,3,2,3,-3,-3,3,0,-3,0,-3,2,2,-3,-3,-2,3,0,0,0,0,-3,3,3,-1,0,0,0,0,0,0,-3,0,0,0,0,0,3,3,0,0,0,0,0,0,0,0,0,0,3,0,0,-3,0,3,0,3,0,0,3,0,0,3,0,0,1,0,-3,0,0,0,0,0,0,0,0,3,3,0,0,0,3,0,0,1,0,0,2,2,0,0,1,-1,3,0,0,0,3,0,0,0,0,3,3,0,0,-2,0,-2]
+sentiment_PrAcc=presidential_sentiment.list
 
 #Initiate the lists that potitive, negative and neutral numbers will be stored
 pos_count_PrAcc, neg_count_PrAcc, neu_count_PrAcc = 0, 0, 0
@@ -206,7 +210,7 @@ percentage_neg_PrAcc = int((neg_count_PrAcc * 100) / total_tweets_PrAcc)
 
 
 #Add the values taken from spacy script for atsipras account
-sentiment_leader_2=[0,-2,3,-3,-3,0,0,0,0,0,0,3,-3,0,0,0,-2,-2,2,0,-3,-3,-3,0,0,3,-3,2,0,0,2,0,0,0,0,0,-3,0,0,0,0,0,-3,-2,-3,-3,-3,-2,0,0,0,-3,2,3,0,-3,-3,-3,3,0,-3,-3,3,2,3,2,0,3,3,0,-3,3,3,3,0,0,3,0,0,0,0,-3,3,2,2,3,0,3,-3,-3,0,0,-3,-3,2,-2,0,0,3,3,3,0,-2,-3,3,-3,3,3,0,0,0,0,0,-3,3,0,0,0,0,0,0,-1,3,0,0,-1,-3,0,0,2,3,3,0,-3,0,0,0,0,0,-1,3,0,3,0,0,0,3,-2,0,3,-2,2,0,3,0,0,-2,-3,0,0,2,0,0,0,0,3,0,2,3,3,0,0,0,-2,0,0,2,0,3,-3,0,0,0,0,3,0,0,0,0,0,0,-3,0,0,0,0,0,0,0,0]
+sentiment_leader_2=leader2_sentiment.list
 
 #Initiate the lists that potitive, negative and neutral numbers will be stored
 pos_count_leader2, neg_count_leader2, neu_count_leader2 = 0, 0, 0
@@ -233,7 +237,7 @@ percentage_neg_ld2 = int((neg_count_leader2 * 100) / total_tweets_leader2)
 
 
 #Add the values taken from spacy script for fofigennimata account
-sentiment_leader_3=[0,-3,0,0,0,3,0,0,0,0,0,0,3,-2,0,0,0,-2,0,0,-3,0,0,3,-1,0,-3,-3,0,-3,0,0,0,0,0,0,0,0,0,-3,0,0,0,0,-3,0,3,0,-3,0,0,0,0,0,3,-3,3,-2,0,0,0,0,0,0,0,2,0,0,0,-1,-3,0,0,-3,-3,2,0,0,0,-3,0,0,0,3,0,3,0,3,3,0,0,3,3,0,0,3,3,-3,0,0,-3,0,2,-3,0,2,-3,3,0,0,-3,0,0,0,0,3,0,3,3,-2,-3,0,0,0,2,-3,-3,3,3,3,0,0,0,0,-3,0,0,0,3,0,0,3,2,0,3,0,3,0,3,-3,3,3,0,0,0,0,0,0,0,0,0,0,0,3,1,-2,0,-2,0,1,3,0,0,1,3,3,-3,0,-3,-2,0,0,0,0,0,0,-1,0,0,3,0,0,0,0,0,0,0,0,-3,0]
+sentiment_leader_3=leader3_sentiment.list
 
 #Initiate the lists that potitive, negative and neutral numbers will be stored
 pos_count_leader3, neg_count_leader3, neu_count_leader3 = 0, 0, 0
