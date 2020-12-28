@@ -7,7 +7,7 @@ tweet_analyzer = TweetAnalyzer()
 from modules.sentiment import kmitsotakis as leader1_sentiment
 from modules.sentiment import atsipras as leader2_sentiment
 from modules.sentiment import gennimata as leader3_sentiment
-from modules.sentiment import presidential as presidential_sentiment
+from modules.sentiment import primeministergr as presidential_sentiment
 
 api = twitter_client.get_twitter_client_api()
 
@@ -61,6 +61,9 @@ neg_hashtag_SYRIZA_3 = api.search(q="Συριζα_απατεωνες ", count=20
 
 neg_hashtag_KINAL_1 = api.search(q="#ΚΙΝΑΛ_ξεφτιλες", count=200 , tweet_mode='extended',lang="el")
 
+hashtag_covid_1 = api.search(q="#πανδημία_ηλιθίων", count=200 , tweet_mode='extended',lang="el")
+hashtag_covid_2 = api.search(q="#σηκωνουμε_μανικια", count=200 , tweet_mode='extended',lang="el")
+
 # Process the tweets for political parties
 neg_hash_ND_1 = tweet_analyzer.tweets_to_data_frame(neg_hashtag_ND_1)
 neg_hash_ND_2 = tweet_analyzer.tweets_to_data_frame(neg_hashtag_ND_2)
@@ -71,6 +74,10 @@ neg_hash_SYRIZA_2 = tweet_analyzer.tweets_to_data_frame(neg_hashtag_SYRIZA_2)
 neg_hash_SYRIZA_3 = tweet_analyzer.tweets_to_data_frame(neg_hashtag_SYRIZA_3)
 
 neg_hash_KINAL_1 = tweet_analyzer.tweets_to_data_frame(neg_hashtag_KINAL_1)
+
+neg_hash_covid19 = tweet_analyzer.tweets_to_data_frame(hashtag_covid_1)
+pos_hash_covid19 = tweet_analyzer.tweets_to_data_frame(hashtag_covid_2)
+
 # Merge data (likes) and display them in a proper way for political leaders
 neg_res_1 = pd.Series(data=neg_hash_ND_1['date'].values)
 neg_res_2 = pd.Series(data=neg_hash_ND_2['date'].values)
@@ -82,6 +89,8 @@ neg_res_6 = pd.Series(data=neg_hash_SYRIZA_1['date'].values)
 
 neg_res_7 = pd.Series(data=neg_hash_KINAL_1['date'].values)
 
+hashtagcovid_1 = pd.Series(data=neg_hash_covid19['date'].values)
+hashtagcovid_2 = pd.Series(data=pos_hash_covid19['date'].values)
 
 # Merge data (likes) and display them in a proper way for political leaders
 leader_1_likes = pd.Series(data=tw_ld_1_df['likes'].values, index=tw_ld_1_df['date'])
@@ -138,8 +147,8 @@ text_11 = "Fofi Gennimata (Greek: Φώφη Γεννηματά, born 17 November 
 text_12 = "The following graph depicts the sentiment analysis results from the 200 recent tweet sample taken from Fofi Gennimata (@FofiGennimata) account. The indications are based on emotion scores. These emotions scores are Hapiness (value: 3), Surprise (value: 2), Sadness (value: 1), Neutral (value: 0), Fear (value: -1), Disgust (value: -2) and Anger (value: -3). We can think of this as a fine-grained result from very positive to very negative. The graph below depicts a scale of values from -3 (Anger or very negative) to 3 (Hapiness or very positive) based from the table of sentiment values as provided on how AthPPA works section (table 1)."
 text_13 = "In the following graph bellow we have choosen some recent tweets based on a negative hashtag for KINAL party. In the case of KINAL party we couldn't find enough negative hashtags due to the low popularity of the party. For this purpose we choose only one negative hashtag that has been latest trend for this party and users tend to use frequently."
 
-
-
+text_14= "#Covid-19_Pandemic"
+text_15 = "The following charts depict some negative and positive hashtags which are currently trends on Twitter and are related towards Covid-19 pandemic. From the beginning of the pandemic the current Prime Minister Kyriakos Mitsotakis took austere measures in order to prevent the spread of the pandemic throughout the country with a series of multiple lockdowns. This policy was somehow opposed by the other political parties, some of them did not agreed with the multiple lockdowns, others with the austerity of the measures and so on. This can be an indicator of how frustrated or not are the civilians towards the policies that the current Prime Minister Kyriakos Mitsotakis enforces. The following two graphs depict the frequency of negative and positive hashtags used by users throughout Twitter in Greece."
 
 
 aboutapp_text_1 = "Twitter is commonly known as a news platform through which its users are informed about the latest events or trends around the globe. Basically, it as a micro-blogging platform which covers the latest trends and events. Besides the fact that Twitter is the top micro-blogging platform on the web, it is also the most frequent social media platform which politicians and political parties tend to use. Thus, Twitter is suitable for analyzing data “tweets” of politicians, perform an analysis of them and extract a prediction for a positive or a negative sentiment over a political party or an entity. Furthermore, Twitter provides their API to companies and developers. At a high level, with the term API we refer to the way which computing systems communicate with each other which is in the form of request (asking for a service) and response (providing a service). This can be achieved by allowing a software application to call an endpoint which has an IP address. Endpoints can be a home pc (desktop or laptop) which has a network card with a unique IP address and a connection through the web. Although what makes Twitter one of the most popular micro-blogging platforms is the fact that its APIs can be accessed by programmers. This feature allows the development of applications that can be fully integrated with Twitter. Twitter’s data have a unique form which can be shared by additional social platforms due to the reason that it reflects information that users choose to share publicly. The API of Twitter gives an infinite access to all public “tweets” which are uploaded publicly by its users."
@@ -157,7 +166,10 @@ about_text_4 = "Dr. Stelios Sfakianakis received his B.Sc. and MSc diplomas from
 
 
 #Add the values taken from spacy script for kmitsotakis account
-sentiment_leader_1 = leader1_sentiment.list
+sentiment_leader_1 = leader1_sentiment.sentiment
+#Add sentiment score for kmitsotakis
+sentiment_score_leader_1 = leader1_sentiment.sentiment_accuracy
+
 
 #Initiate the lists that potitive, negative and neutral numbers will be stored
 pos_count_leader1, neg_count_leader1, neu_count_leader1 = 0, 0, 0
@@ -182,8 +194,10 @@ percentage_neg_ld1 = int((neg_count_leader1 * 100) / total_tweets_leader1)
 
 
 
-#Add the values taken from spacy script for kmitsotakis account
-sentiment_PrAcc=presidential_sentiment.list
+#Add the values taken from spacy script for primeministergr account
+sentiment_PrAcc=presidential_sentiment.sentiment
+#Add sentiment score for primeministergr
+sentiment_score_presidential = presidential_sentiment.sentiment_accuracy
 
 #Initiate the lists that potitive, negative and neutral numbers will be stored
 pos_count_PrAcc, neg_count_PrAcc, neu_count_PrAcc = 0, 0, 0
@@ -210,7 +224,9 @@ percentage_neg_PrAcc = int((neg_count_PrAcc * 100) / total_tweets_PrAcc)
 
 
 #Add the values taken from spacy script for atsipras account
-sentiment_leader_2=leader2_sentiment.list
+sentiment_leader_2=leader2_sentiment.sentiment
+#Add sentiment score for atsipras
+sentiment_score_leader_2 = leader2_sentiment.sentiment_accuracy
 
 #Initiate the lists that potitive, negative and neutral numbers will be stored
 pos_count_leader2, neg_count_leader2, neu_count_leader2 = 0, 0, 0
@@ -237,7 +253,9 @@ percentage_neg_ld2 = int((neg_count_leader2 * 100) / total_tweets_leader2)
 
 
 #Add the values taken from spacy script for fofigennimata account
-sentiment_leader_3=leader3_sentiment.list
+sentiment_leader_3=leader3_sentiment.sentiment
+#Add sentiment score for fofigennimata
+sentiment_score_leader_3 = leader3_sentiment.sentiment_accuracy
 
 #Initiate the lists that potitive, negative and neutral numbers will be stored
 pos_count_leader3, neg_count_leader3, neu_count_leader3 = 0, 0, 0
