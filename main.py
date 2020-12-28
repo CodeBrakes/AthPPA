@@ -159,6 +159,32 @@ index = html.Div([
         }
     ),
 
+    dcc.Graph(id='sentiment_score_leader_1',
+              figure={
+                  'data': [
+                      {
+                          'y': inputStream.sentiment_score_leader_1, 'type': 'bar',
+                          'name': 'Percentage (%)',
+                          'marker': {'color': 'rgb(45, 86, 133)'}
+                      }
+                  ],
+                  'layout': {
+                      'title': 'Sentiment score per Tweet @kmitsotakis (only for positive and negative values)',
+                      'xaxis': dict(
+                          title='Sentiment accuracy per tweet ',
+                          titlefont=dict(
+                              family='Courier New, monospace',
+                              size=13,
+                              color='#7f7f7f')),
+                      'yaxis': dict(
+                          title='Percentage (%)',
+                          titlefont=dict(
+                              family='Courier New, monospace',
+                              size=13,
+                              color='#7f7f7f'))
+                  }
+    }),
+
     dcc.Graph(id='DataForPrAcc',
               figure={
                   'data': [
@@ -185,7 +211,7 @@ index = html.Div([
                               size=13,
                               color='#7f7f7f'))
                   }
-              }),
+    }),
 
     html.P(inputStream.text_6, className="paragraph"),
 
@@ -208,6 +234,32 @@ index = html.Div([
             )
         }
     ),
+
+    dcc.Graph(id='sentiment_score_presidential',
+              figure={
+                  'data': [
+                      {
+                          'y': inputStream.sentiment_score_presidential, 'type': 'bar',
+                          'name': 'Percentage (%)',
+                          'marker': {'color': 'rgb(45, 86, 133)'}
+                      }
+                  ],
+                  'layout': {
+                      'title': 'Sentiment score per Tweet @primeMinisterGR (only for positive and negative values)',
+                      'xaxis': dict(
+                          title='Sentiment accuracy per tweet ',
+                          titlefont=dict(
+                              family='Courier New, monospace',
+                              size=13,
+                              color='#7f7f7f')),
+                      'yaxis': dict(
+                          title='Percentage (%)',
+                          titlefont=dict(
+                              family='Courier New, monospace',
+                              size=13,
+                              color='#7f7f7f'))
+                  }
+    }),
 
     dcc.Graph(id='DataForND',
               figure={
@@ -258,7 +310,7 @@ index = html.Div([
 
                   ],
                   'layout': go.Layout(
-                      title='Mined tweets based on negative hashtag (#ΝΔ_θελατε) for New Democracy party (200 tweets sample)',
+                      title='Mined tweets based on negative hashtag (#ΝΔ_θελατε) for New Democracy party (100 tweets sample)',
                       xaxis={'title': 'Date tweet posted'},
                       yaxis={'title': 'Obtained tweets'},
                   )
@@ -283,7 +335,7 @@ index = html.Div([
 
                   ],
                   'layout': go.Layout(
-                      title='Mined tweets based on negative hashtag (#ΝΔ_ξεφτιλες) for New Democracy party (200 tweets sample)',
+                      title='Mined tweets based on negative hashtag (#ΝΔ_ξεφτιλες) for New Democracy party (100 tweets sample)',
                       xaxis={'title': 'Date tweet posted'},
                       yaxis={'title': 'Obtained tweets'},
                   )
@@ -309,7 +361,7 @@ index = html.Div([
 
                   ],
                   'layout': go.Layout(
-                      title='Mined tweets based on negative hashtag (#ΝΔ_ρομπες) for New Democracy party (200 tweets sample)',
+                      title='Mined tweets based on negative hashtag (#ΝΔ_ρομπες) for New Democracy party (100 tweets sample)',
                       xaxis={'title': 'Date tweet posted'},
                       yaxis={'title': 'Obtained tweets'},
                   )
@@ -430,7 +482,33 @@ index = html.Div([
                     size=14,
                     color='#7f7f7f')
             )
-        }),
+    }),
+
+    dcc.Graph(id='sentiment_score_leader2',
+              figure={
+                  'data': [
+                      {
+                          'y': inputStream.sentiment_score_leader_2, 'type': 'bar',
+                          'name': 'Percentage (%)',
+                          'marker': {'color': 'rgb(179, 50, 80)'}
+                      }
+                  ],
+                  'layout': {
+                      'title': 'Sentiment score per Tweet @atsipras (only for positive and negative values)',
+                      'xaxis': dict(
+                          title='Sentiment accuracy per tweet ',
+                          titlefont=dict(
+                              family='Courier New, monospace',
+                              size=13,
+                              color='#7f7f7f')),
+                      'yaxis': dict(
+                          title='Percentage (%)',
+                          titlefont=dict(
+                              family='Courier New, monospace',
+                              size=13,
+                              color='#7f7f7f'))
+                  }
+    }),
 
     html.P(inputStream.text_10, className="paragraph"),
 
@@ -453,7 +531,7 @@ index = html.Div([
 
                   ],
                   'layout': go.Layout(
-                      title='Mined tweets based on negative hashtag (#ΣΥΡΙΖΑ_ξεφτιλες) for SYRIZA party (200 tweets sample)',
+                      title='Mined tweets based on negative hashtag (#ΣΥΡΙΖΑ_ξεφτιλες) for SYRIZA party (100 tweets sample)',
                       xaxis={'title': 'Date tweet posted'},
                       yaxis={'title': 'Obtained tweets'},
                   )
@@ -478,7 +556,7 @@ index = html.Div([
 
                   ],
                   'layout': go.Layout(
-                      title='Mined tweets based on negative hashtag (#συριζωα) for SYRIZA party (200 tweets sample)',
+                      title='Mined tweets based on negative hashtag (#συριζωα) for SYRIZA party (100 tweets sample)',
                       xaxis={'title': 'Date tweet posted'},
                       yaxis={'title': 'Obtained tweets'},
                   )
@@ -504,7 +582,7 @@ index = html.Div([
 
                   ],
                   'layout': go.Layout(
-                      title='Mined tweets based on negative hashtag (#Συριζα_απατεωνες) for SYRIZA party (200 tweets sample)',
+                      title='Mined tweets based on negative hashtag (#Συριζα_απατεωνες) for SYRIZA party (100 tweets sample)',
                       xaxis={'title': 'Date tweet posted'},
                       yaxis={'title': 'Obtained tweets'},
                   )
@@ -600,6 +678,32 @@ index = html.Div([
         }
     ),
 
+    dcc.Graph(id='sentiment_score_leader3',
+              figure={
+                  'data': [
+                      {
+                          'y': inputStream.sentiment_score_leader_3, 'type': 'bar',
+                          'name': 'Percentage (%)',
+                          'marker': {'color': 'rgb(47, 143, 100)'}
+                      }
+                  ],
+                  'layout': {
+                      'title': 'Sentiment score per Tweet @fofigennimata (only for positive and negative values)',
+                      'xaxis': dict(
+                          title='Sentiment accuracy per tweet ',
+                          titlefont=dict(
+                              family='Courier New, monospace',
+                              size=13,
+                              color='#7f7f7f')),
+                      'yaxis': dict(
+                          title='Percentage (%)',
+                          titlefont=dict(
+                              family='Courier New, monospace',
+                              size=13,
+                              color='#7f7f7f'))
+                  }
+    }),
+
     dcc.Graph(id='DataForLeaderThree',
               figure={
                   'data': [
@@ -649,11 +753,73 @@ index = html.Div([
 
                   ],
                   'layout': go.Layout(
-                      title='Mined tweets based on negative hashtag (#ΚΙΝΑΛ_ξεφτιλες) for KINAL party (200 tweets sample)',
+                      title='Mined tweets based on negative hashtag (#ΚΙΝΑΛ_ξεφτιλες) for KINAL party (100 tweets sample)',
                       xaxis={'title': 'Date tweet posted'},
                       yaxis={'title': 'Obtained tweets'},
                   )
               }),
+    html.Div(children=[
+        html.Center([
+            html.Table([
+                html.Tr([
+                    html.Td(html.Img(src='./assets/covid-19.png', className="leader_cards"))
+                ])
+            ])
+        ]),
+        html.P(inputStream.text_14, className="paragraph-header"),
+        html.P(inputStream.text_15, className="paragraph-card")
+    ], className="table_covid"),
+
+    dcc.Graph(id='NegHashCOVID-19',
+              figure={
+                  'data': [
+                      go.Scatter(
+                          x=inputStream.hashtagcovid_1,
+                          mode='markers',
+                          marker=dict(
+                              color='#3b3b3b',
+                              opacity=0.5,
+                              size=18,
+                              line=dict(
+                                  color='black',
+                                  width=1
+                              )
+                          )
+                      )
+
+                  ],
+                  'layout': go.Layout(
+                      title='Mined tweets based on negative hashtag (#πανδημία_ηλιθίων) for Covid-19 pandemic measures (100 tweets sample)',
+                      xaxis={'title': 'Date tweet posted'},
+                      yaxis={'title': 'Obtained tweets'},
+                  )
+    }),
+
+    dcc.Graph(id='PosHashCOVID-19',
+              figure={
+                  'data': [
+                      go.Scatter(
+                          x=inputStream.hashtagcovid_2,
+                          mode='markers',
+                          marker=dict(
+                              color='#3b3b3b',
+                              opacity=0.5,
+                              size=18,
+                              line=dict(
+                                  color='black',
+                                  width=1
+                              )
+                          )
+                      )
+
+                  ],
+                  'layout': go.Layout(
+                      title='Mined tweets based on positive hashtag (#σηκώνουμε_μανίκια) for Covid-19 pandemic measures (100 tweets sample)',
+                      xaxis={'title': 'Date tweet posted'},
+                      yaxis={'title': 'Obtained tweets'},
+                  )
+    }),
+
 
     html.Div([
         html.Center([
