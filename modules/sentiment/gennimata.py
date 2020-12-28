@@ -34,7 +34,8 @@ subj_scores = {'OBJ': 0, 'SUBJ-': 0.5, 'SUBJ+': 1}
 emotion_scores = {'N/A': 0, '1.0': 0.2, '2.0': 0.4, '3.0': 0.6, '4.0': 0.8, '5.0': 1}
 polarity_scores = {'N/A': 0, 'BOTH': 0, 'NEG': -1, 'POS': 1}
 
-list = []
+sentiment_values = []
+sentiment_score = []
 for row in df['text']:
     anger_score = 0
     disgust_score = 0
@@ -72,13 +73,21 @@ for row in df['text']:
         emotion = max(emotions.items(), key=operator.itemgetter(1))[0]
 
         if (emotions[emotion] == 0):
-            sentiment = 0
+            temp_sent = 0
+            sentiment_values.append(temp_sent)
         else:
-            sentiment = emotion
+            temp_sent = emotion
+            sentiment_values.append(temp_sent)
+            temp_emscore = round(float(emotions[emotion] * 100 / matched_tokens), 1)
+            sentiment_score.append(temp_emscore)
 
     except:
-        sentiment = 'No matched tokens'
+        print('No matched tokens')
 
-    list.append(sentiment)
-list2=list
-print(list2)
+sentiment=sentiment_values
+sentiment_accuracy=sentiment_score
+print("Results for @fofigennimata account")
+print("Emotion Values:")
+print(sentiment)
+print("Emotion Score:")
+print(sentiment_accuracy)
