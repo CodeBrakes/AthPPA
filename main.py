@@ -851,7 +851,7 @@ index = html.Div([
                               size=14,
                               color='#7f7f7f')),
                       'yaxis': dict(
-                          title='Number of likes and retweets',
+                          title='Number of likes per tweet',
                           titlefont=dict(
                               family='Courier New, monospace',
                               size=14,
@@ -884,7 +884,7 @@ index = html.Div([
                               size=14,
                               color='#7f7f7f')),
                       'yaxis': dict(
-                          title='Number of retweets',
+                          title='Number of retweets per tweet',
                           titlefont=dict(
                               family='Courier New, monospace',
                               size=14,
